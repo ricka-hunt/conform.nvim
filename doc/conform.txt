@@ -588,6 +588,7 @@ FORMATTERS                                                    *conform-formatter
 `v` - V language formatter.
 `verible` - The SystemVerilog formatter.
 `vsg` - Style guide enforcement for VHDL.
+`xan` - a CSV commandline toolkit.
 `xmlformatter` - xmlformatter is an Open Source Python package, which provides
                formatting of XML documents.
 `xmllint` - Despite the name, xmllint can be used to format XML files as well as

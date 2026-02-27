@@ -423,6 +423,7 @@ You can view this list in vim with `:help conform-formatters`
 - [v](https://vlang.io) - V language formatter.
 - [verible](https://github.com/chipsalliance/verible/blob/master/verilog/tools/formatter/README.md) - The SystemVerilog formatter.
 - [vsg](https://github.com/jeremiah-c-leary/vhdl-style-guide) - Style guide enforcement for VHDL.
+- [xan](https://github.com/medialab/xan) - a CSV commandline toolkit.
 - [xmlformatter](https://github.com/pamoller/xmlformatter) - xmlformatter is an Open Source Python package, which provides formatting of XML documents.
 - [xmllint](http://xmlsoft.org/xmllint.html) - Despite the name, xmllint can be used to format XML files as well as lint them.
 - [xmlstarlet](http://xmlstar.sourceforge.net/) - XMLStarlet is a command-line XML toolkit that can be used to format XML files.
@@ -491,7 +492,7 @@ require("conform").formatters.shfmt = {
 }
 ```
 
-If you want to overwrite the entire formatter definition and _not_ merge with the default values, pass `inherit = false`. This is also the default behavior if there is no built-in formatter with the given name, which can be used to add your own custom formatters.
+If you want to overwrite the entire formatter definition and *not* merge with the default values, pass `inherit = false`. This is also the default behavior if there is no built-in formatter with the given name, which can be used to add your own custom formatters.
 
 ```lua
 require("conform").formatters.shfmt = {
@@ -704,7 +705,7 @@ require("conform").formatters.my_formatter = {
 |                       | `"last"`                                                                                                         | other formatters are used then LSP formatting when available                                                                                                                                                                                                                        |
 | >>quiet               | `nil\|boolean`                                                                                                   | Don't show any notifications for warnings or failures. Defaults to false.                                                                                                                                                                                                           |
 | >>stop_after_first    | `nil\|boolean`                                                                                                   | Only run the first available formatter in the list. Defaults to false.                                                                                                                                                                                                              |
-| >format_after_save    | `nil\|conform.FormatOpts\|fun(bufnr: integer): nil\|conform.FormatOpts`                                          | , nil|fun(err: nil|string, did_edit: nil|boolean) If this is set, Conform will run the formatter asynchronously after save. It will pass the table to conform.format(). This can also be a function that returns the table (and an optional callback that is run after formatting). |
+| >format_after_save | `nil\|conform.FormatOpts\|fun(bufnr: integer): nil\|conform.FormatOpts` | , nil |
 | >log_level            | `nil\|integer`                                                                                                   | Set the log level (e.g. `vim.log.levels.DEBUG`). Use `:ConformInfo` to see the location of the log file.                                                                                                                                                                            |
 | >notify_on_error      | `nil\|boolean`                                                                                                   | Conform will notify you when a formatter errors (default true).                                                                                                                                                                                                                     |
 | >notify_no_formatters | `nil\|boolean`                                                                                                   | Conform will notify you when no formatters are available for the buffer (default true).                                                                                                                                                                                             |
@@ -748,6 +749,7 @@ Returns:
 | boolean | True if any formatters were attempted |
 
 **Examples:**
+
 ```lua
 -- Synchronously format the current buffer
 conform.format({ lsp_format = "fallback" })
@@ -804,6 +806,7 @@ Get information about a formatter (including availability)
 | --------- | -------------- | ------------------------- |
 | formatter | `string`       | The name of the formatter |
 | bufnr     | `nil\|integer` |                           |
+
 <!-- /API -->
 
 ## FAQ
